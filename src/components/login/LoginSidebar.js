@@ -63,6 +63,7 @@ export default LoginSidebar
 const Wrapper = styled.div`
   background-color: var(--grey-50);
   box-shadow: var(--shadow-1);
+  height: 100vh;
 
   .sidebar-content {
     width: 80%;
@@ -70,7 +71,7 @@ const Wrapper = styled.div`
     max-width: 500px;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: 90vh;
+    height: 90%;
   }
 
   .header {
@@ -142,6 +143,10 @@ const Wrapper = styled.div`
     top: 50%;
     left: 10%;
     box-shadow: var(--shadow-1);
+  }
+
+  .footer {
+    margin-bottom: 1rem;
   }
 
   .footer h4 {
