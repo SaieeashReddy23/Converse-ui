@@ -9,6 +9,7 @@ import facebookLogo from '../../assets/images/facebook.svg'
 
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import validator from 'validator'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
@@ -43,6 +44,12 @@ const LoginForm = () => {
       toast.error('Pls add Password')
       return
     }
+
+    if (!validator.isEmail(email)) {
+      toast.error('This is not a valid email')
+      return
+    }
+
     setEmail('')
     setPassword('')
     toast.success('Email and Password are submitted')
@@ -68,7 +75,7 @@ const LoginForm = () => {
             type="email"
             value={email}
             className="input"
-            placeholder="you@example.com"
+            placeholder="Enter you email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -86,7 +93,7 @@ const LoginForm = () => {
             value={password}
             className="input"
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="At least 8 characters"
+            placeholder="Enter your password"
           />
 
           {isPasswordVisibile ? (

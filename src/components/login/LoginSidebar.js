@@ -5,7 +5,7 @@ import donut from '../../assets/images/donut_full.png'
 
 import styled from 'styled-components'
 
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+import CarousalComponent from './CarousalComponent'
 
 const LoginSidebar = () => {
   return (
@@ -32,28 +32,7 @@ const LoginSidebar = () => {
           </div>
         </div>
 
-        <div className="footer">
-          <h4>Welcomeback!</h4>
-          <p>Start managing your finance faster and better</p>
-          <p>Start managing your finance faster and better</p>
-
-          <div className="footer-nav">
-            <span>
-              <AiOutlineLeft />
-            </span>
-
-            <div className="dots-container">
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="dot active-dot"></div>
-              <div className="dot"></div>
-            </div>
-
-            <span>
-              <AiOutlineRight />
-            </span>
-          </div>
-        </div>
+        <CarousalComponent />
       </div>
     </Wrapper>
   )
@@ -76,6 +55,8 @@ const Wrapper = styled.div`
 
   .header {
     font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.1rem;
   }
 
   .company-logo {
@@ -143,45 +124,5 @@ const Wrapper = styled.div`
     top: 50%;
     left: 10%;
     box-shadow: var(--shadow-1);
-  }
-
-  .footer {
-    margin-bottom: 1rem;
-  }
-
-  .footer h4 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer p {
-    margin-bottom: 0;
-    color: var(--grey-400);
-    font-size: 1.1rem;
-    letter-spacing: 0.05rem;
-  }
-
-  .footer-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
-  }
-
-  .dots-container {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: var(--grey-300);
-  }
-
-  .active-dot {
-    background-color: var(--black);
   }
 `
