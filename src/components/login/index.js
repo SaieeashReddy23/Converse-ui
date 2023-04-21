@@ -1,4 +1,5 @@
 import LoginSidebar from './LoginSidebar'
 import LoginForm from './LoginForm'
+import CarousalComponent from './CarousalComponent'
 
-export { LoginForm, LoginSidebar }
+export { LoginForm, LoginSidebar, CarousalComponent }
