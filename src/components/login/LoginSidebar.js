@@ -11,7 +11,7 @@ const LoginSidebar = () => {
   return (
     <Wrapper>
       <div className="sidebar-content">
-        <div className="header">
+        <div className="header sidebar-logo-header">
           <img src={companyLogo} alt="logo" className="company-logo" />
           CONVERSE
         </div>
@@ -75,11 +75,11 @@ const Wrapper = styled.div`
   }
 
   .header {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   .company-logo {
-    width: 35px;
+    width: 60px;
     margin-right: 0.5rem;
     margin-bottom: -0.2rem;
   }
@@ -157,8 +157,8 @@ const Wrapper = styled.div`
   .footer p {
     margin-bottom: 0;
     color: var(--grey-400);
-    font-size: 1.2rem;
-    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
   }
 
   .footer-nav {

@@ -1,13 +1,53 @@
 import { FaRegEnvelope } from 'react-icons/fa'
 import { MdOutlineLock } from 'react-icons/md'
-import { AiOutlineEye } from 'react-icons/ai'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import styled from 'styled-components'
 
 import googleLogo from '../../assets/images/google-icon.svg'
 import facebookLogo from '../../assets/images/facebook.svg'
 
+import { useState } from 'react'
+import { toast } from 'react-toastify'
+
 const LoginForm = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [isPasswordVisibile, setIsPasswordVisibile] = useState(false)
+
+  const handleFocus = (e) => {
+    const parentContainer = e.target.parentElement
+    parentContainer.classList.add('active-input-container')
+  }
+
+  const handleOutOfFocus = (e) => {
+    const parentContainer = e.target.parentElement
+    parentContainer.classList.remove('active-input-container')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (!email && !password) {
+      toast.error('Pls add Email and Password')
+      return
+    }
+
+    if (!email) {
+      toast.error('Pls add Email')
+      return
+    }
+
+    if (!password) {
+      toast.error('Pls add Password')
+      return
+    }
+    setEmail('')
+    setPassword('')
+    toast.success('Email and Password are submitted')
+  }
+
   return (
     <Wrapper>
       <h4 className="header">Welcomeback!</h4>
@@ -16,46 +56,77 @@ const LoginForm = () => {
       </p>
 
       <form className="login-form">
-        <div className="input-container">
+        <div
+          className="input-container"
+          onFocus={handleFocus}
+          onBlur={handleOutOfFocus}
+        >
           <span>
             <FaRegEnvelope />
           </span>
-          <input type="email" className="input" placeholder="you@example.com" />
+          <input
+            type="email"
+            value={email}
+            className="input"
+            placeholder="you@example.com"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
 
-        <div className="input-container">
+        <div
+          className="input-container"
+          onFocus={handleFocus}
+          onBlur={handleOutOfFocus}
+        >
           <span>
             <MdOutlineLock />
           </span>
           <input
-            type="password"
+            type={isPasswordVisibile ? 'text' : 'password'}
+            value={password}
             className="input"
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="At least 8 characters"
           />
-          <span className="password">
-            <AiOutlineEye />
-          </span>
+
+          {isPasswordVisibile ? (
+            <span
+              className="password"
+              onClick={() => setIsPasswordVisibile(!isPasswordVisibile)}
+            >
+              <AiOutlineEyeInvisible />
+            </span>
+          ) : (
+            <span
+              className="password"
+              onClick={() => setIsPasswordVisibile(!isPasswordVisibile)}
+            >
+              <AiOutlineEye />
+            </span>
+          )}
         </div>
 
         <p className="forgot-password">Forgot password?</p>
 
-        <button className=" btn login-btn">Login</button>
+        <button type="submit" onClick={handleSubmit} className=" btn login-btn">
+          Login
+        </button>
       </form>
 
       <div className="seperator">or</div>
 
       <div className="btns-container">
-        <button className="google-btn">
+        <a href="#" className="google-btn">
           <img src={googleLogo} alt="google" /> Google
-        </button>
-        <button className="facebook-btn">
+        </a>
+        <a href="#" className="facebook-btn">
           <img src={facebookLogo} alt="facebook" />
           Facebook
-        </button>
+        </a>
       </div>
 
       <p className="sign-up">
-        Don't you have an account? <span>Sign Up</span>
+        Don't you have an account? <a href="#">Sign Up</a>
       </p>
     </Wrapper>
   )
@@ -69,13 +140,17 @@ const Wrapper = styled.div`
 
   .header {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
   }
 
   .sub-header {
     color: var(--grey-400);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 0.05rem;
+  }
+
+  .login-form {
+    margin-top: 2rem;
   }
 
   .input-container {
@@ -83,8 +158,13 @@ const Wrapper = styled.div`
     align-items: center;
     background-color: var(--grey-50);
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     padding: 0.5rem 1rem;
+    /* border: 1px solid var(--primary-400); */
+  }
+
+  .active-input-container {
+    border: 1px solid var(--primary-500);
   }
 
   .input-container span {
@@ -94,6 +174,7 @@ const Wrapper = styled.div`
     display: grid;
     place-items: center;
     color: var(--primary-400);
+    border-radius: 5px;
   }
 
   .input-container input {
@@ -101,7 +182,8 @@ const Wrapper = styled.div`
     width: 100%;
     background: transparent;
     border: transparent;
-    color: var(--grey-500);
+    color: var(--grey-700);
+    letter-spacing: var(--letterSpacing);
   }
 
   input::placeholder {
@@ -112,7 +194,13 @@ const Wrapper = styled.div`
   .forgot-password {
     color: var(--primary-400);
     text-align: right;
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .forgot-password:hover {
+    color: var(--primary-500);
   }
 
   .input-container .password {
@@ -123,7 +211,7 @@ const Wrapper = styled.div`
   .login-btn {
     width: 100%;
     border-radius: 8px;
-    padding: 1rem 0.5rem;
+    padding: 0.8rem 0.5rem;
   }
 
   .seperator {
@@ -169,6 +257,16 @@ const Wrapper = styled.div`
     gap: 0.5rem;
     border-radius: 7px;
     cursor: pointer;
+    font-weight: 550;
+    letter-spacing: var(--letterSpacing);
+    color: var(--grey-600);
+    transition: var(--transition);
+  }
+
+  .google-btn:hover,
+  .facebook-btn:hover {
+    background-color: var(--grey-50);
+    transform: scale(1.05);
   }
 
   .btns-container img {
@@ -182,7 +280,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 
-  .sign-up span {
+  .sign-up a {
     color: var(--primary-500);
   }
 `

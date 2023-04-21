@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
+
 *,
 ::after,
 ::before {
@@ -339,4 +341,11 @@ input:focus {
   display: grid;
   place-items: center;
   color: var(--grey-600);
+}
+
+.sidebar-logo-header {
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  letter-spacing: 0.1rem;
 }
