@@ -1,4 +1,3 @@
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 
 import { carousalItems } from '../../assets/data'
