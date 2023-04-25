@@ -4,6 +4,8 @@ import { carousalItems } from '../../assets/data'
 
 import { useState, useEffect } from 'react'
 
+import styled from 'styled-components'
+
 const CarousalComponent = () => {
   const [items, setItems] = useState(carousalItems)
   const [currentItem, setCurrentItem] = useState(0)
@@ -33,7 +35,7 @@ const CarousalComponent = () => {
   }, [])
 
   return (
-    <div className="footer">
+    <Wrapper>
       <div className="carousal-container">
         {items.map(({ header, text }, index) => {
           return (
@@ -72,7 +74,78 @@ const CarousalComponent = () => {
           <FiChevronRight />
         </button>
       </div>
-    </div>
+    </Wrapper>
   )
 }
 export default CarousalComponent
+
+const Wrapper = styled.div`
+  margin-bottom: 1rem;
+
+  h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0;
+    color: var(--grey-400);
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .carousal-container {
+    position: relative;
+    padding: 1rem 2rem;
+    height: 10rem;
+    overflow: hidden;
+  }
+
+  .carousal-item {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translateX(100%);
+    transition: var(--transition);
+  }
+
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .prev-btn,
+  .next-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: var(--grey-300);
+    transition: var(--transition);
+  }
+
+  .prev-btn:hover,
+  .next-btn:hover {
+    color: var(--grey-700);
+  }
+
+  .dots-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--grey-300);
+  }
+
+  .active-dot {
+    background-color: var(--black);
+  }
+`
