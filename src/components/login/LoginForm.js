@@ -2,6 +2,8 @@ import { FaRegEnvelope } from 'react-icons/fa'
 import { MdOutlineLock } from 'react-icons/md'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
+import { useNavigate } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 import googleLogo from '../../assets/images/google-icon.svg'
@@ -12,6 +14,7 @@ import { toast } from 'react-toastify'
 import validator from 'validator'
 
 const LoginForm = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -49,6 +52,10 @@ const LoginForm = () => {
       toast.error('This is not a valid email')
       return
     }
+
+    localStorage.setItem('auth', true)
+
+    navigate('/')
 
     setEmail('')
     setPassword('')

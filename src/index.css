@@ -364,6 +364,8 @@ input:focus {
 
 /* Items */
 
+/* Header */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -384,27 +386,32 @@ input:focus {
   font-weight: normal;
 }
 
+/* Items */
+
 .items {
   margin-top: 2rem;
 }
 
 .item-container {
   background-color: var(--white);
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-radius: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  padding-bottom: 0;
 }
 
 .item {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr auto;
-  gap: 1rem;
-  align-items: center;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem; */
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
 .item-column {
   margin-left: 1rem;
+  /* border: 1px solid red; */
 }
 
 .item-header {
@@ -421,42 +428,43 @@ input:focus {
 
 .item-value {
   margin-top: 1rem;
-  font-size: 1rem;
-}
-
-.desc-info {
-  margin: 0 0.5rem;
-  position: relative;
-  top: 0.2rem;
-}
-
-.desc-info:hover {
-  color: red;
-}
-
-.quantity-icon {
-  margin: 0 0.5rem;
-  position: relative;
-  top: 0.2rem;
   font-size: 1.2rem;
 }
 
-.quantity-icon:hover {
-  color: red;
+.desc-info {
+  margin: 0 0.3rem;
+  position: relative;
+  top: 0.3rem;
+  color: var(--primary-400);
+  transition: all 0.1s;
+  font-size: 0.5rem;
+}
+
+.desc-info:hover {
+  color: var(--primary-700);
+}
+
+.quantity-icon {
+  margin: 0 0.3rem;
+  position: relative;
+  top: 0.3rem;
+  color: green;
 }
 
 .details-btn {
-  justify-self: flex-start;
-  font-size: 1rem;
+  text-transform: uppercase;
+  font-size: 0.7rem;
   background: var(--primary-500);
   border: none;
   color: var(--white);
-  justify-self: center;
-  padding: 0.5rem 1rem;
-  border-radius: 15px;
+  border-radius: 5px;
+  padding-left: 1rem;
+  margin-right: 2rem;
   display: flex;
   align-items: center;
   transition: var(--transition);
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.1rem;
 }
 
 .details-btn span {
@@ -470,32 +478,97 @@ input:focus {
   transform: scale(1.025);
 }
 
+.item-status p {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  background-color: rgb(0, 164, 0);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  letter-spacing: 0.1rem;
+  color: var(--white);
+}
+
+/* Details */
+
 .details {
   border-top: 1px solid var(--grey-50);
   padding-top: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  padding-right: 2.5rem;
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
   margin-left: 1rem;
   font-size: 0.9rem;
+  padding-bottom: 0.25rem;
 }
-
 .detail-column {
-  /* border: 1px solid red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.25rem 3rem;
 }
 
-.detail {
+.column-1 {
+  gap: 0.25rem 0;
+}
+
+.column-3 {
+  justify-content: space-between;
+}
+
+.column-3 .detail-header {
+  /* margin-left: 10rem; */
+  gap: 0;
+}
+
+.column-3 .detail-value {
+  /* display: inline; */
+}
+
+/* .detail {
   color: var(--grey-700);
   display: grid;
-  grid-template-columns: 12rem 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  display: flex;
+  justify-content: 50% 50%;
+  gap: 5rem;
+
   margin: 1rem 0;
-}
+} */
 
 .detail-header {
   color: var(--grey-500);
+  /* text-align: right; */
+  /* border: 1px solid red; */
+  letter-spacing: 1px;
 }
 
-/* CHAT GPT */
+.detail-value {
+  /* text-align: right; */
+  /* border: 1px solid red; */
+  margin-bottom: 0;
+  padding-bottom: 0;
+  letter-spacing: 1px;
+}
+
+.avail-inventory {
+  /* border: 1px solid red; */
+  position: relative;
+  top: -0.2rem;
+}
+
+.refresh-icon {
+  margin: 0 0.4rem;
+  position: relative;
+  top: 0.3rem;
+  color: rgba(224, 73, 3, 0.964);
+  transition: var(--transition);
+}
+
+/* .refresh-icon:hover {
+  color: var(--grey-800);
+} */
 
 /* Filters */
 
@@ -503,12 +576,14 @@ input:focus {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
+  align-items: center;
 }
 
 .filter {
   /* background-color: var(--white); */
   border-radius: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .filter-selector {
@@ -573,4 +648,14 @@ input:focus {
 
 .options p:hover {
   background-color: var(--primary-300);
+}
+
+.date-selector {
+  height: 100%;
+}
+
+.container-className {
+  border: 1px solid red;
+  padding: 0;
+  margin: 0;
 }
