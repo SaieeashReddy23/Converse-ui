@@ -1,21 +1,26 @@
 import styled from 'styled-components'
 import { DashboardItems } from '../../components/DashboardPage'
 import { FaChevronDown } from 'react-icons/fa'
+import { DatePicker } from '@mui/x-date-pickers'
 
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 const Dashboard = () => {
   const [showOptions, setShowOptions] = useState(false)
-  const [showCalendar, setShowCalendar] = useState(false)
 
-  const [plannedDate, setPlannedDate] = useState(new Date())
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('auth')
+  )
+
+  if (!authenticated) {
+    return <Navigate to="/login" />
+  }
 
   return (
     <Wrapper className="dashboard-container">
       <div className="header">
-        <h4>Dashboard</h4>
+        <h4>Material Indent</h4>
         <p>
           <span>Welcome Back! </span> Sai Mahendra
         </p>
@@ -71,30 +76,86 @@ const Dashboard = () => {
         </div>
 
         <div className="filter">
-          <div
-            className="filter-selector"
-            onClick={() => setShowCalendar(!showCalendar)}
-          >
+          {/* <div className="filter-selector date-selector">
             <p>Planned Date</p>
             <span>
               <FaChevronDown />
             </span>
-          </div>
+          </div> */}
+          <DatePicker
+            label="Planned Date"
+            slotProps={{ textField: { size: 'small' } }}
+            showDaysOutsideCurrentMonth
+            sx={{
+              margin: 0,
+              padding: '0',
+              backgroundColor: 'white',
+              border: 'transparent',
+              borderBlock: 'transparent',
+              borderRadius: '5px',
 
-          {showCalendar && (
-            <div className="calendar">
-              <Calendar value={plannedDate} onChange={setPlannedDate} />
-            </div>
-          )}
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'transparent',
+                color: 'black',
+              },
+
+              '& .MuiOutlinedInput-notchedOutline:hover': {
+                border: '2px solid #60a5fa',
+                color: 'black',
+              },
+
+              '& .MuiInputBase-root': {
+                padding: '0.25rem 0.5rem',
+                borderRadius: '10px',
+                border: '2px solid transparent',
+              },
+
+              '& .MuiInputBase-root:hover': {
+                padding: '0.25rem 0.5rem',
+                borderRadius: '10px',
+                border: '2px solid #60a5fa',
+              },
+            }}
+          />
         </div>
 
         <div className="filter">
-          <div className="filter-selector">
-            <p>Created Date</p>
-            <span>
-              <FaChevronDown />
-            </span>
-          </div>
+          {/* <div className="filter-selector date-selector"></div> */}
+          <DatePicker
+            label="Created Date"
+            slotProps={{ textField: { size: 'small' } }}
+            showDaysOutsideCurrentMonth
+            sx={{
+              margin: 0,
+              padding: '0',
+              backgroundColor: 'white',
+              border: 'transparent',
+              borderBlock: 'transparent',
+              borderRadius: '5px',
+
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'transparent',
+                color: 'black',
+              },
+
+              '& .MuiOutlinedInput-notchedOutline:hover': {
+                border: '2px solid #60a5fa',
+                color: 'black',
+              },
+
+              '& .MuiInputBase-root': {
+                padding: '0.25rem 0.5rem',
+                borderRadius: '10px',
+                border: '2px solid transparent',
+              },
+
+              '& .MuiInputBase-root:hover': {
+                padding: '0.25rem 0.5rem',
+                borderRadius: '10px',
+                border: '2px solid #60a5fa',
+              },
+            }}
+          />
         </div>
 
         {/* <div className="filter">

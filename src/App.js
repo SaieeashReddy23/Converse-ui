@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { LoginPage, ErrorPage } from './pages'
+import { Navigate } from 'react-router-dom'
 
 import {
   SharedLayout,
@@ -17,12 +18,13 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
+  const redirect = true
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="materials" element={<Materials />} />
+          <Route index element={<Materials />} />
+          <Route path="materials" element={<Dashboard />} />
           <Route path="quotations" element={<Quotations />} />
           <Route path="orders" element={<Orders />} />
           <Route path="asn" element={<ASN />} />

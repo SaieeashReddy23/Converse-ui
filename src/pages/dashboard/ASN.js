@@ -1,6 +1,16 @@
 import styled from 'styled-components'
+import { useState, useEffect } from 'react'
+
+import { Navigate } from 'react-router-dom'
 
 const ASN = () => {
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('auth')
+  )
+
+  if (!authenticated) {
+    return <Navigate to="/login" />
+  }
   return <Wrapper> ASN</Wrapper>
 }
 export default ASN

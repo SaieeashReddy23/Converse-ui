@@ -46,7 +46,8 @@ const Wrapper = styled.div`
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    margin-top: -0.5rem;
+    margin-top: -0.3rem;
+    margin-left: 0.2rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
   }
@@ -61,18 +62,16 @@ const Wrapper = styled.div`
     gap: 0.7rem;
     align-items: center;
     margin: 2.5rem 0;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     transition: var(--transition);
   }
 
   .page:hover {
     color: var(--white);
-    transform: scale(1.1);
   }
 
   .active {
     color: var(--white);
-    transform: scale(1.1);
   }
 
   .page span {

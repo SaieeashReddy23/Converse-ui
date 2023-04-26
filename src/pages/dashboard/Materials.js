@@ -1,7 +1,18 @@
 import styled from 'styled-components'
 
+import { useState, useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
+
 const Materials = () => {
-  return <Wrapper>Materials</Wrapper>
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('auth')
+  )
+
+  if (!authenticated) {
+    return <Navigate replace to="/login" />
+  }
+
+  return <Wrapper>Dashboard</Wrapper>
 }
 export default Materials
 
