@@ -418,6 +418,7 @@ input:focus {
   font-size: 1rem;
   color: var(--grey-500);
   display: inline-block;
+  letter-spacing: 1px;
 }
 
 .line {
