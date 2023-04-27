@@ -4,7 +4,6 @@ import { fontSize } from '@mui/system'
 // import { IoMdRefresh } from 'react-icons/io'
 
 const DetailsComponent = () => {
-  const varianceHeader = `Variance (Act vs Req) :`
   return (
     <div className="details">
       <div className="detail-column column-1">
@@ -22,16 +21,16 @@ const DetailsComponent = () => {
         <div className="detail-header">Budgeted Quantity :</div>
         <div className="detail-value">100kgs</div>
 
-        <div className="detail-header">Procurred till date :</div>
-        <div className="detail-value">400 tons</div>
-
-        <div className="detail-header">Available Inventory :</div>
+        <div className="detail-header">Inventory :</div>
         <div className="detail-value avail-inventory">
           500 tons
           <span className="refresh-icon">
             <RotateLeftIcon style={{ fontSize: '1.2rem' }} />
           </span>
         </div>
+
+        <div className="detail-header">Procurred till date :</div>
+        <div className="detail-value">400 tons</div>
       </div>
       <div className="detail-column column-3">
         <div className="detail-header">Created by :</div>
@@ -42,7 +41,7 @@ const DetailsComponent = () => {
           <span>&#x20B9;</span> 1000
         </div>
 
-        <div className="detail-header">{varianceHeader}</div>
+        <div className="detail-header">Variance :</div>
         <div className="detail-value">0.15</div>
       </div>
     </div>
