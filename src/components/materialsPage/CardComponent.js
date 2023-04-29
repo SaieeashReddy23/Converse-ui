@@ -38,6 +38,7 @@ const Wrapper = styled.div`
   .card-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .header-left-wrapper {
@@ -50,10 +51,11 @@ const Wrapper = styled.div`
     color: var(--green-dark);
     font-weight: 700;
     font-size: 0.55rem;
-    padding: 0.2rem;
     border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    padding: 0.3rem;
+    padding-bottom: 0.2rem;
   }
 
   .card-header span {
