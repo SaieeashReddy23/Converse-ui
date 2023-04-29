@@ -1,11 +1,10 @@
-import RefreshIcon from '@mui/icons-material/Refresh'
 import RotateLeftIcon from '@mui/icons-material/RotateLeft'
-import { fontSize } from '@mui/system'
-// import { IoMdRefresh } from 'react-icons/io'
+
+import styled from 'styled-components'
 
 const DetailsComponent = () => {
   return (
-    <div className="details">
+    <Wrapper>
       <div className="detail-column column-1">
         <div className="detail-header">Project :</div>
         <div className="detail-value">Kmv Project</div>
@@ -44,7 +43,60 @@ const DetailsComponent = () => {
         <div className="detail-header">Variance :</div>
         <div className="detail-value">0.15</div>
       </div>
-    </div>
+    </Wrapper>
   )
 }
 export default DetailsComponent
+
+const Wrapper = styled.div`
+  border-top: 1px solid var(--grey-50);
+  padding-top: 1rem;
+  padding-right: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  padding-bottom: 0.25rem;
+
+  .detail-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0.25rem 3rem;
+  }
+
+  .column-1 {
+    gap: 0.25rem 0;
+  }
+
+  .column-3 {
+    justify-content: space-between;
+  }
+
+  .column-3 .detail-header {
+    gap: 0;
+  }
+
+  .detail-header {
+    color: var(--grey-500);
+  }
+
+  .detail-value {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .avail-inventory {
+    position: relative;
+    top: -0.2rem;
+  }
+
+  .refresh-icon {
+    margin: 0 0.4rem;
+    position: relative;
+    top: 0.3rem;
+    color: rgba(224, 73, 3, 0.964);
+    transition: var(--transition);
+  }
+`

@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { LoginPage, ErrorPage } from './pages'
-import { Navigate } from 'react-router-dom'
 
 import {
   SharedLayout,
@@ -23,8 +22,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Materials />} />
-          <Route path="materials" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
+          <Route path="materials" element={<Materials />} />
           <Route path="quotations" element={<Quotations />} />
           <Route path="orders" element={<Orders />} />
           <Route path="asn" element={<ASN />} />

@@ -1,8 +1,9 @@
 import SingleItem from './SingleItem'
+import styled from 'styled-components'
 
-const DashboardItems = () => {
+const MaterialPageItems = () => {
   return (
-    <div className="items">
+    <Wrapper>
       <SingleItem />
       <SingleItem />
       <SingleItem />
@@ -11,11 +12,9 @@ const DashboardItems = () => {
       <SingleItem />
       <SingleItem />
       <SingleItem />
-      <SingleItem />
-      <SingleItem />
-      <SingleItem />
-      <SingleItem />
-    </div>
+    </Wrapper>
   )
 }
-export default DashboardItems
+export default MaterialPageItems
+
+const Wrapper = styled.div``
