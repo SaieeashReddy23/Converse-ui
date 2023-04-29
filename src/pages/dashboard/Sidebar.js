@@ -1,8 +1,6 @@
 import logo from '../../assets/images/logo.png'
 import { NavLink } from 'react-router-dom'
-
 import links from '../../assets/data/navLinks'
-
 import styled from 'styled-components'
 
 const Sidebar = () => {
